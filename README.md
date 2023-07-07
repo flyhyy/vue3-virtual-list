@@ -1,46 +1,41 @@
 # vue3-virtual-list
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+ 基于vue3+ts的虚拟列表组件
+> 下载
+- npm install vue3-base-virtual-list
+> 参数
+```typescript
+export interface Props {
+  // 列表
+  list: any[]
+  // container 样式
+  containerStyle?: style
+  // container class
+  containerClassName?: string
+  // child 样式
+  childStyle?: style
+  // child class
+  childClassName?: string
+  // 高度
+  height: number
+  // 列表子项预估高度
+  itemHeight: number
+  //   滚动至底部的回调函数
+  scrollButtonFn?: Function
+}
 ```
 
-### Compile and Hot-Reload for Development
+> 使用
+ ```text
+import virtualList from " vue3-base-virtual-list";
+const list = Array.from({length: 1000}, (_, index) => index + 1)
 
-```sh
-npm run dev
-```
+ <virtual-list :list="list" :height="300" :item-height="20">
+    <template #default="{item}">
+        <span>
+       {{ item.data }}
+      </span>
+    </template>
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+  </virtual-list>
+ ```
