@@ -1,14 +1,9 @@
-import  VirtualList  from './virtual-list/src/index.vue'
+import VirtualList from './virtual-list/src/index.vue'
 
-export  {VirtualList}
 
-const   components = [VirtualList]
-
-const  install = (app,options)=>{
-    components.forEach((item)=>{
-        app.component(item.name,item)
-    })
+VirtualList.install = (Vue) => {
+  Vue.component(VirtualList.name, VirtualList)
 }
-export  default  {
-  install
-}
+
+
+export default VirtualList
