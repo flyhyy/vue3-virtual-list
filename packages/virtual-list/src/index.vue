@@ -5,7 +5,7 @@
       height: `${height}px`,
       ...containerStyle
     }"
-        class="virtual-container"
+        style=" overflow-y: scroll;background: #f1f1f1;"
         @scroll="onScroll"
   >
     <div
@@ -13,7 +13,7 @@
           :style="{
         height: `${totalHeight}px`
       }"
-          class="virtual-container-child"
+          style="  width: 100%;  position: relative;"
     >
       <div v-for="(item, index) in virtualList" :key="item" ref="items" :style="item.style">
         <slot :item="item"></slot>
@@ -105,16 +105,3 @@ const onScroll = (event?: Event) => {
 }
 </script>
 
-<style lang="scss" scoped>
-.virtual {
-  &-container {
-    overflow-y: scroll;
-    background: #ccc;
-
-    &-child {
-      width: 100%;
-      position: relative;
-    }
-  }
-}
-</style>
