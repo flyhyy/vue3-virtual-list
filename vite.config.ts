@@ -2,7 +2,6 @@ import {fileURLToPath, URL} from 'node:url'
 import {resolve} from 'path'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -14,11 +13,12 @@ export default defineConfig({
     }
   },
   build: {
+    cssCodeSplit:false,
     lib: {
       entry: resolve(__dirname, 'packages/index.ts'),
       name: 'virtual-list',
       // the proper extensions will be added
-      fileName: (format) => `virtual.${format}.ts`
+      fileName: (format) => `virtual-list.${format}.ts`
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
