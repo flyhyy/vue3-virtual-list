@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import virtualList from "../packages/virtual-list/src/index.vue";
+// import virtualList from "../packages/virtual-list/src/index.vue";
 
 const list = Array.from({length: 1000}, (_, index) => index + 1)
 </script>

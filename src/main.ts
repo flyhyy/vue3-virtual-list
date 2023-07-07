@@ -1,5 +1,8 @@
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import VirtualList from "../packages/index";
 
-createApp(App).mount('#app')
+
+
+createApp(App).use(VirtualList).mount('#app')
